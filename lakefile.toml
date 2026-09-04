@@ -1,0 +1,25 @@
+name = "Leanify"
+version = "0.1.0"
+defaultTargets = ["GenExpr", "GenExprTests"]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.34.0-rc1"
+
+[[lean_lib]]
+name = "GenExpr"
+globs = ["GenExpr", "GenExpr.+"]
+
+[[lean_lib]]
+name = "GenExprTests"
+globs = ["GenExprTests", "GenExprTests.+"]
+
+[[lean_exe]]
+name = "genexpr-test"
+root = "GenExprTests.Main"
