@@ -186,7 +186,7 @@ def corpus : Array Case := #[
   { name := "29 statement under a stated domain"
     input := "n^2 > 2n for n > 2", names := #[], types := #[P1], values := [0, 0, 0, 0, 0, 0]
     expect := some "∀ n : ℕ, n > 2 → n ^ 2 > 2 * n"
-    expectDecl := some "theorem statement : ∀ n : ℕ, n > 2 → n ^ 2 > 2 * n := by\n  sorry" },
+    expectDecl := some "def statement : Prop := ∀ n : ℕ, n > 2 → n ^ 2 > 2 * n" },
   { name := "30 equality chain repeats its smallest member"
     input := "a(n) = n^2 = n*n", names := #[], types := #[P1], values := [0, 0, 0]
     tables := #[("a", table1 [(0, 0), (1, 1), (2, 4)])]

@@ -98,7 +98,7 @@ partial def renderAgg (st : RenderStyle) (kind : AggKind) (v : String) (lo hi dv
       | .lit s _ => substVar v (natPlus (s.toNat!) (.var v .nat)) body
       | _ => body
     s!"{sym} {v} : ℕ, {render st 0 shifted}"
-  | _, _, _, _ => s!"sorry -- unsupported {kind} over {ty.render}"
+  | _, _, _, _ => s!"«unsupported {kind} over {ty.render}»"
 
 end
 
@@ -216,7 +216,7 @@ def renderDef (st : RenderStyle) (t : Typing) (name : String)
   let v := names[0]?.getD "n"
   let natArg := t.params.size == 1 && t.params[0]!.2 == .nat
   if t.ret == .prop then
-    s!"theorem {name} : {renderStatement st t} := by\n  sorry"
+    s!"def {name} : Prop := {renderStatement st t}"
   else
   match form with
   | .none =>

@@ -197,7 +197,7 @@ private def stmts (input : String) (n : Nat)
 
 #guard (analyze { input := "n^2 > 2n for n > 2", types := #[P1], values := seqFrom 0 [0, 0, 0]
                   verify := { engine := .internal } }).items[0]!.decl
-  == "theorem statement : ∀ n : ℕ, n > 2 → n ^ 2 > 2 * n := by\n  sorry"
+  == "def statement : Prop := ∀ n : ℕ, n > 2 → n ^ 2 > 2 * n"
 
 end
 end GenExprTests.VerifyTests
